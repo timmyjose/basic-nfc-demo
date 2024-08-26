@@ -13,12 +13,6 @@
     },
     "ios": {
       "supportsTablet": true,
-      "infoPlist": {
-        "NFCReaderUsageDescription": "We need to use NFC"
-      },
-      "entitlements": {
-        "com.apple.developer.nfc.readersession.formats": ["TAG"]
-      },
       "bundleIdentifier": "com.timmyjose.basicnfcdemo",
       "config": {
         "usesNonExemptEncryption": false
@@ -29,9 +23,6 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "permissions": [
-        "android.permission.NFC"
-      ],
       "package": "com.timmyjose.basicnfcdemo"
     },
     "web": {
@@ -55,7 +46,8 @@
             "DeploymentTarget": "13.4"
           }
         }
-      ]
+      ],
+      "react-native-nfc-manager"
     ],
     "extra": {
       "eas": {
