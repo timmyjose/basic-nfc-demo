@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "basic-nfc-demo",
+    "name": "BasicNFCDemo",
     "slug": "basic-nfc-demo",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,20 +13,60 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.timmyjose.basicnfcdemo"
+      "infoPlist": {
+        "NFCReaderUsageDescription": "We need to use NFC"
+      },
+      "entitlements": {
+        "com.apple.developer.nfc.readersession.formats": ["TAG"]
+      },
+      "bundleIdentifier": "com.timmyjose.basicnfcdemo",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "permissions": [
+        "android.permission.NFC"
+      ],
       "package": "com.timmyjose.basicnfcdemo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-build-properties"
-    ]
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24,
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "34.0.0",
+            "enableProguardInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true,
+            "extraProguardRules": "-dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivity$g \n -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter$Args \n -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter$Error \n -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter \n -dontwarn com.stripe.android.pushProvisioning.PushProvisioningEphemeralKeyProvider"
+          },
+          "ios": {
+            "useFrameworks": "static",
+            "DeploymentTarget": "13.4"
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "fbd03dce-31fb-4c81-b0e1-fc9a28573076"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/fbd03dce-31fb-4c81-b0e1-fc9a28573076"
+    }
   }
 }
